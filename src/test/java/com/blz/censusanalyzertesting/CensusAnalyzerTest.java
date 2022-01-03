@@ -10,9 +10,10 @@ public class CensusAnalyzerTest {
     private static final String INDIA_CENSUS_CSV_PATH = "D:\\BridgeLabz Assignments\\CensusAnalyzerProject\\src\\main\\resources\\IndiaStateCensusData.csv";
     private static final String INDIA_STATE_CODE_CSV_PATH = "D:\\BridgeLabz Assignments\\CensusAnalyzerProject\\src\\main\\resources\\IndiaStateCode.csv";
 
+    CensusAnalyzer censusAnalyzer = new CensusAnalyzer();
+
     @Test
     public void givenIndiaCensusCsvFile_WhenLoad_ShouldReturnCorrectRecords() {
-        CensusAnalyzer censusAnalyzer = new CensusAnalyzer();
 
         try {
             int numOfRecords = censusAnalyzer.loadIndiaCensusData(INDIA_CENSUS_CSV_PATH);
@@ -26,7 +27,6 @@ public class CensusAnalyzerTest {
 
     @Test
     public void givenIndiaStateCodeCsvFile_WhenLoad_ShouldReturnCorrectRecords() {
-        CensusAnalyzer censusAnalyzer = new CensusAnalyzer();
 
         try {
             int numOfRecords = censusAnalyzer.loadIndiaStateCode(INDIA_STATE_CODE_CSV_PATH);
