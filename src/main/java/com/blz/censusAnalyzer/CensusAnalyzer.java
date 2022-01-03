@@ -1,10 +1,13 @@
 package com.blz.censusAnalyzer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.stream.StreamSupport;
 
 public class CensusAnalyzer {
@@ -37,5 +40,24 @@ public class CensusAnalyzer {
         int numOfEntries = (int) StreamSupport.stream(iterable.spliterator(),true).count();
 
         return numOfEntries;
+    }
+
+    public void loadIndiaCensusDataUsingDelimiter(String csvPath) throws FileNotFoundException {
+
+        try
+        {
+            Scanner sc = new Scanner(new File(csvPath));
+            sc.useDelimiter("");   //sets the delimiter pattern
+            while (sc.hasNext())  //returns a boolean value
+            {
+                System.out.print(sc.next());  //find and returns the next complete token from this scanner
+            }
+            sc.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println();
+        }
+
     }
 }
